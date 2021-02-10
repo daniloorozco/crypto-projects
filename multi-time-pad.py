@@ -26,18 +26,8 @@ cipherTexts = [
     '835f319a47e61fa25067d599d6d181e3e58f9dd41da32f0b4a99b85cbf83406ec05a31f2e8c6dbeabca2cc5809df2b29f84a007e798bf3b5c7ad0f34'
 ]
 
-# Final cipher to solve
 cipherToSolve = '835f319a47e61fa25067d599d6d181e3e58f9dd41da32f0b4a99b85cbf83406ec05a31f2e8c6dbeabca2cc5809df2b29f84a007e798bf3b5c7ad0f34'
 
-# Single key used to encrypt all messages
-key = [None]*150
-
-# Known positinons of the key
-knowKeyPositions = set()
-
-# For every cipher run with all ciphers except itself
-
-# For each cipher text
 for index1, cipher1 in enumerate(cipherTexts):
     counter = collections.Counter()
     # For each other cipher text
@@ -49,9 +39,7 @@ for index1, cipher1 in enumerate(cipherTexts):
                 if char.isalpha() and char in string.printable:
                     # Update counter checking with all other ciper texts
                     counter[position] += 1 
-    # To save indexes of found spaces
-    spaces = []
-
+ 
     # Go through all counters
     for index, times in counter.items():
         # if number of spaces is >=7 save its index
@@ -73,14 +61,7 @@ result = stringXOR( cipherToSolve.decode('hex'), keyHex.decode('hex') )
 # Print the result with * at unknown places
 print(''.join([char if index in knowKeyPositions else '*' for index, char in enumerate(result)]))
 
-
-# Final answer got by simply analyzing the result
-#cipherSolved = 'WONDERED HOW PEOPLE WOUlD REACT TO THE STORY. HE GUESSED IT'
-#WONDERED HOW PEOPLE WOUBD,REAMT"TO,THE STORY. HE GUESSE+"TJ.
-
 cipherSolved= 'AND APPROACHED THE DESK. YET AGAIN, SOMEBODY HAD SEARCHED B'
-
-
 
 print (cipherSolved)
 # Getting the key 
