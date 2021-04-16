@@ -61,6 +61,7 @@ result = stringXOR( cipherToSolve.decode('hex'), keyHex.decode('hex') )
 # Print the result with * at unknown places
 print(''.join([char if index in knowKeyPositions else '*' for index, char in enumerate(result)]))
 
+#Put your cipher guess here. Below is example of cypher given.
 cipherSolved= 'AND APPROACHED THE DESK. YET AGAIN, SOMEBODY HAD SEARCHED B'
 
 print (cipherSolved)
